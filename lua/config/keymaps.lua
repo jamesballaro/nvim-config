@@ -2,7 +2,13 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 local map = vim.keymap.set
 local project = require("project_nvim.project")
+require("leap").setup({
+	default_mappings = false, -- don’t set s, S, x, X automatically
+})
 
+-- Now define your preferred mappings
+map("n", "s", "<Plug>(leap-forward)")
+map("n", "S", "<Plug>(leap-backward)")
 -- Set up the keymap
 map("n", "<leader>ap", project.add_project_manually, { desc = "Add project manually" })
 map("n", "<leader>p", ":Telescope project<CR>", { desc = "Open Telescope Project" })
@@ -19,14 +25,4 @@ map("n", "<S-PageUp>", "5<PageUp>", { noremap = true })
 map("n", "<S-j>", "5j", { noremap = true })
 map("n", "<S-k>", "5k", { noremap = true })
 map({ "n", "v" }, "<S-U>", "<C-R>", { noremap = true })
--- New Dashboard tab
-map("n", "<leader>sf", function()
-    vim.cmd("tabnew")
-    Snacks.dashboard.open()
-end, { desc = "Show Dashboard (New Tab)" })
--- Go back to Dashboard
-map("n", "<leader>se", function()
-    vim.cmd("enew") -- clears current buffer
-    Snacks.dashboard.open()
-end, { desc = "Show Dashboard (Clear Buffer)" })
 vim.keymap.set("n", "<leader>tw", ":%s/\\s\\+$//e<CR>", { desc = "Trim trailing whitespace" })

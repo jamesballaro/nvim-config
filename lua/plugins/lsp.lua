@@ -10,15 +10,25 @@ return {
             lspconfig.pyright.setup({
                 settings = {
                     python = {
-                        analysis = {
-                            typeCheckingMode = "basic",
-                            autoSearchPaths = true,
-                            useLibraryCodeForTypes = true,
+                    analysis = {
+                        typeCheckingMode = "basic",
+                        autoSearchPaths = true,
+                        useLibraryCodeForTypes = true,
+                        diagnosticSeverityOverrides = {
+                            reportMissingImports = "none",
+                            reportMissingModuleSource = "none",
+                            reportAttributeAccessIssue = "none",
                         },
                     },
+                    },
                 },
-            })
-
+                root_dir = function(fname)
+                    -- Look for project-specific pyrightconfig.json, otherwise fallback to global
+                    local util = require("lspconfig.util")
+                    return util.root_pattern("pyrightconfig.json")(fname) or vim.loop.os_homedir()
+                end,
+                })
+            
             -- Clangd setup
             lspconfig.clangd.setup({
                 cmd = { "clangd" },

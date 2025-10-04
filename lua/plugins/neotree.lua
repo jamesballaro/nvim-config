@@ -6,16 +6,7 @@ return {
             enable_diagnostics = true,
             window = {
                 width = 30,
-                mappings = {
-                    ["<S-Tab>"] = function(state)
-                        local node = state.tree:get_node()
-                        if require("neo-tree.utils").is_expandable(node) then
-                            state.commands["toggle_node"](state)
-                        else
-                            state.commands["open"](state)
-                        end
-                    end,
-                },
+                -- v
             },
             filesystem = {
                 filtered_items = {
@@ -33,15 +24,6 @@ return {
                 end,
                 desc = "Explorer NeoTree (toggle)",
             },
-            -- New File with Shift-N
-            -- {
-            --     "<S-n>",
-            --     function()
-            --         require("neo-tree.command").execute({ action = "new" })
-            --     end,
-            --     desc = "New File",
-            -- },
-            -- Decrease filetree width with Ctrl-<
             {
                 "<C-Left>",
                 function()

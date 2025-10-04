@@ -1,7 +1,7 @@
 return {
     {
         "folke/flash.nvim",
-        enabled = false,
+        enabled = true,
     },
     {
         "ggandor/leap.nvim",
@@ -39,15 +39,24 @@ return {
             "neovim/nvim-lspconfig",
             "mfussenegger/nvim-dap",
             "mfussenegger/nvim-dap-python", --optional
-            { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+            "nvim-telescope/telescope.nvim",
         },
+
         lazy = true,
-        branch = "regexp", -- This is the regexp branch, use this for the new version
+        branch = "regexp", -- optional, for improved venv detection using regex (recommended)
+
         config = function()
-            require("venv-selector").setup()
+            require("venv-selector").setup({})
+            vim.api.nvim_create_autocmd("User", {
+            pattern = "VenvActivated",
+            callback = function()
+                vim.cmd("LspRestart")
+            end,
+            })
         end,
         keys = {
-            { ",v", "<cmd>VenvSelect<cr>" },
-        },
+            { "<leader>vs", "<cmd>VenvSelect<cr>", desc = "Select Python venv" },
+            { "<leader>vl", "<cmd>VenvSelectCached<cr>", desc = "Use last venv" },
+        }
     },
 }

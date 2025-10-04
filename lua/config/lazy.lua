@@ -25,8 +25,8 @@ local plugins = {
             config = function()
                 vim.cmd.colorscheme("gruvbox-material")
                 vim.g.gruvbox_material_background = "medium"
-                -- vim.api.nvim_set_hl(0, "TerminalNormalNC", { bold = true, fg = "#ffffff" }) 
-                -- vim.api.nvim_set_hl(0, "TerminalNormal", { bold = true, fg = "#ffffff" }) 
+                -- vim.api.nvim_set_hl(0, "TerminalNormalNC", { bold = true, fg = "#ffffff" })
+                -- vim.api.nvim_set_hl(0, "TerminalNormal", { bold = true, fg = "#ffffff" })
             end,
         },
         {
@@ -104,22 +104,22 @@ local plugins = {
         },
         { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
         { "neovim/nvim-lspconfig" },
-        { "williamboman/mason.nvim", build = ":MasonUpdate" },
-        { "williamboman/mason-lspconfig.nvim" },
+        { "mason-org/mason.nvim" },
+        { "mason-org/mason-lspconfig.nvim" },
         { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-        {
-            "supermaven-inc/supermaven-nvim",
-            event = "InsertEnter",
-            config = function()
-                require("supermaven-nvim").setup({})
-            end,
-        },
-        {
-            "onsails/lspkind.nvim",
-            config = function()
-                require("lspkind").init()
-            end,
-        },
+        -- {
+        --     "supermaven-inc/supermaven-nvim",
+        --     event = "InsertEnter",
+        --     config = function()
+        --         require("supermaven-nvim").setup({})
+        --     end,
+        -- },
+        -- {
+        --     "onsails/lspkind.nvim",
+        --     config = function()
+        --         require("lspkind").init()
+        --     end,
+        -- },
         -- import/override with your plugins
         { import = "plugins" },
     },
