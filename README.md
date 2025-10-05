@@ -1,4 +1,4 @@
-Neovim config
+Simple neovim config
 
 This repository contains a personal Neovim configuration (LazyVim + plugins) designed to work on macOS (arm64) and Linux (x86_64).
 
