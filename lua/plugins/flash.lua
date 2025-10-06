@@ -25,17 +25,12 @@ return {
 		end,
 	},
 	{
-		"neovim/nvim-lspconfig",
-		opts = {
-			servers = {
-				pyright = {},
-			},
-		},
-	},
-	{
 		"numToStr/Comment.nvim",
 		opts = {},
 		lazy = false,
+	},
+	{
+		"ahmedkhalf/project.nvim",
 	},
 	{
 		"linux-cultist/venv-selector.nvim",

@@ -5,7 +5,12 @@ return {
 		require("Comment").setup({
 			padding = true,
 			sticky = true,
-			ignore = "^$", -- ignore empty lines
+			toggler = {
+				line = "<C-/>", -- Normal mode line comment
+			},
+			opleader = {
+				line = "<C-/>", -- Visual mode line comment
+			},
 		})
 	end,
 }
