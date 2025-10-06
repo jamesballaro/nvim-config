@@ -1,14 +1,6 @@
 Simple neovim config
 
-This repository contains a personal Neovim configuration (LazyVim + plugins) designed to work on macOS (arm64) and Linux (x86_64).
-
-Quick notes to get started after cloning:
-
-Prerequisites
-- Neovim 0.9+ (recommended)
-- git
-- Python 3 (python3)
-- A C compiler (clang or gcc) for building some treesitter parsers
+This repository contains my personal Neovim configuration (which lets me setup on new devices easily)
 
 Bootstrap (example)
 
@@ -36,5 +28,3 @@ git clone <repo-url> ~/.config/nvim
 ```
 
 2. Start Neovim. The config bootstraps itself (lazy.nvim will be cloned if missing). Open `:Lazy` to view/manage plugins and `:Mason` to install language servers.
-
-
