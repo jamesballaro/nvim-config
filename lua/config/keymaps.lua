@@ -64,7 +64,7 @@ map({ "n", "v", "t" }, "<C-;>", function()
 	term.toggle(nil, { cwd = require("lazyvim.util").root() })
 end, { desc = "Toggle/focus terminal" })
 
-map({ "n", "t" }, "<Esc>", "<Esc><Esc>", { noremap = true, silent = true, desc = "Escape terminal" })
+-- map({ "n", "t" }, "<Esc>", "<Esc><Esc>", { noremap = true, silent = true, desc = "Escape terminal" })
 -- ============================================================================
 -- Editing
 -- ============================================================================
@@ -78,8 +78,10 @@ map({ "n", "v" }, "<S-U>", "<C-R>", { noremap = true, desc = "Redo" })
 map("v", "d", '"_d', { noremap = true, desc = "Delete without copying" })
 map("n", "dd", '"_dd', { noremap = true, desc = "Delete without copying" })
 
+map("n", "<S-e>", "ggVG", { desc = "Select Everything" })
+
 -- Remove trailing whitespace
-map("n", "<leader>tw", ":%s/\\s\\+$//e<CR>", { desc = "Trim trailing whitespace" })
+map("n", "<leader>tw", ":%s/\\s\\+$//e<CR><Esc>", { desc = "Trim trailing whitespace" })
 
 -- Comments
 map("n", "<C-/>", require("Comment.api").toggle.linewise.current, { desc = "Comment current line" })

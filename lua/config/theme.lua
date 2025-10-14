@@ -45,7 +45,6 @@ local terminal_highlights = {
 	TerminalNormal = { bold = true, fg = colors.fg },
 	TerminalNormalNC = { bold = true, fg = colors.fg },
 }
-
 function M.apply_highlights()
 	-- Apply NeoTree highlights
 	for group, settings in pairs(neotree_highlights) do
@@ -61,6 +60,7 @@ end
 function M.setup()
 	M.apply_highlights()
 
+	vim.api.nvim_set_hl(0, "Visual", { bg = "#5c626b", fg = "NONE" })
 	vim.api.nvim_create_autocmd("ColorScheme", {
 		group = vim.api.nvim_create_augroup("CustomTheme", { clear = true }),
 		desc = "Apply custom theme highlights after colorscheme change",
